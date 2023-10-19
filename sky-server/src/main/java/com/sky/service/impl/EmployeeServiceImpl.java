@@ -113,4 +113,21 @@ employeeMapper.insert(employee);
 
         employeeMapper.update(employee);
     }
+
+    @Override
+    public Employee getByid(long id) {
+        Employee employee=employeeMapper.getByid(id);
+        //使数据传输到页面时为加密传输，增加安全性
+        employee.setPassword("****");
+        return employee;
+    }
+
+    public void update(EmployeeDTO employeeDTO) {
+        Employee employee = new Employee();
+        //数据拷贝
+        BeanUtils.copyProperties(employeeDTO,employee);
+        employee.setUpdateTime(LocalDateTime.now());
+        employee.setUpdateUser(BaseContext.getCurrentId());
+        employeeMapper.update(employee);
+    }
 }

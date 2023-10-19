@@ -25,4 +25,7 @@ public interface EmployeeMapper {
     Page<Employee> pagQuery(EmployeePageQueryDTO employeePageQueryDTO);
 //根据主键来动态修改属性
     void update(Employee employee);
+    //根据id查询员工信息
+@Select("select *from employee where id=#{id}")
+    Employee getByid(long id);
 }
