@@ -23,4 +23,6 @@ public interface EmployeeMapper {
     void insert(Employee employee);
 //分页查询
     Page<Employee> pagQuery(EmployeePageQueryDTO employeePageQueryDTO);
+//根据主键来动态修改属性
+    void update(Employee employee);
 }

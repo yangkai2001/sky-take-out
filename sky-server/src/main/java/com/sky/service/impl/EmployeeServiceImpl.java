@@ -86,7 +86,7 @@ employeeMapper.insert(employee);
     }
 //分页查询
     @Override
-    public PageResult pageQuery(EmployeePageQueryDTO employeePageQueryDTO) {
+    public PageResult  pageQuery(EmployeePageQueryDTO employeePageQueryDTO) {
         //selec * from e'mployee limit 0，10
         //开始分页查询，使用分页查询插件进行动态获取页码数和显示条数
         //在pom文件中导入pagehelper插件
@@ -97,5 +97,20 @@ employeeMapper.insert(employee);
         List<Employee> records = page.getResult();
 
         return new PageResult(total,records);
+    }
+//启用禁用员工账号
+    @Override
+    public void startOrStop(Integer status, long id) {
+ //修改状态sql语句
+        //update employee set status = ? where id=?
+//        Employee employee=new Employee();
+//        employee.setStatus(status);
+//        employee.setId(id);
+//可以使用build构造器生成对象
+        Employee employee = Employee.builder()
+                .status(status)
+                .id(id).build();
+
+        employeeMapper.update(employee);
     }
 }
