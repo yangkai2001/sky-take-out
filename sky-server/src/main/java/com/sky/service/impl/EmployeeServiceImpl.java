@@ -75,12 +75,12 @@ employee.setStatus(StatusConstant.ENABLE);
 //设置密码，默认为123456，用MD5进行加密运行
 employee.setPassword(DigestUtils.md5DigestAsHex(PasswordConstant.DEFAULT_PASSWORD.getBytes()));
 //设置当前记录的创建时间与修改时间
-employee.setCreateTime(LocalDateTime.now());
-employee.setUpdateTime(LocalDateTime.now());
+//employee.setCreateTime(LocalDateTime.now());
+//employee.setUpdateTime(LocalDateTime.now());
 //设置当前记录创建人的id和修改人的id
-//TODO 后期需要改为当前登录用户的id
-employee.setCreateUser(BaseContext.getCurrentId());
-employee.setUpdateUser(BaseContext.getCurrentId());
+
+//employee.setCreateUser(BaseContext.getCurrentId());
+//employee.setUpdateUser(BaseContext.getCurrentId());
 employeeMapper.insert(employee);
 
     }
@@ -126,8 +126,8 @@ employeeMapper.insert(employee);
         Employee employee = new Employee();
         //数据拷贝
         BeanUtils.copyProperties(employeeDTO,employee);
-        employee.setUpdateTime(LocalDateTime.now());
-        employee.setUpdateUser(BaseContext.getCurrentId());
+        //employee.setUpdateTime(LocalDateTime.now());
+        // employee.setUpdateUser(BaseContext.getCurrentId());
         employeeMapper.update(employee);
     }
 }
