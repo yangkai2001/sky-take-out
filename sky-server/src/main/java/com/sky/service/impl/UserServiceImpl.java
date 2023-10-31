@@ -54,11 +54,11 @@ private UserMapper userMapper;
     private String getOpenid(String code){
         //调用微信接口服务，获得当前微信用户的openid
         Map<String, String> map=new HashMap<>();
-        map.put("appid",weChatProperties.getAppid());
-        map.put("secret",weChatProperties.getSecret());
+        map.put("appid",weChatProperties.getAppid());//获取小程序的appid
+        map.put("secret",weChatProperties.getSecret());//获取小程序的秘钥
         map.put("js_code",code);
         map.put("grant_type","authorization_code");
-        String json = HttpClientUtil.doGet(WX_LOGIN, map);
+        String json = HttpClientUtil.doGet(WX_LOGIN, map);//请求路径
         //解析json数据
         JSONObject jsonObject= JSON.parseObject(json);
         String openid = jsonObject.getString("openid");
