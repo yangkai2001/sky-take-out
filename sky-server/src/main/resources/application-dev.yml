@@ -17,3 +17,6 @@ sky:
     access-key-id: LTAI5tDgkTr8Ldu4BYrqndqU
     access-key-secret: TYS5VwM5cgMLjNZq72dQSYJUdqv70Y
     bucket-name: yangkai999
+  wechat:
+    appid: wx9e17eb33c4ea32cd
+    secret: e5cc3d629cd6fc96178ee2ea9be0952e
