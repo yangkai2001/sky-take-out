@@ -17,7 +17,7 @@ public class OrderTask {
     @Autowired
     private OrderMapper orderMapper;
     //处理超时订单的方法
-    @Scheduled(cron = "1 * * * *?")
+    @Scheduled(cron = "1 * * * * ?")
     public void processTimeoutOrder(){
         log.info("定时处理超时订单：{}", LocalDateTime.now());
         //当前时间减15分钟来与创建订单时间做对比
