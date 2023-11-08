@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Select;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface OrderMapper {
@@ -41,4 +42,8 @@ OrderVO getById(Long id);
 //查找超时订单
     @Select("select * from orders where status=#{status} and order_time<#{orderTime}")
     List<Orders> getByStatusAndOrderTimeLT(Integer status, LocalDateTime orderTime);
+//统计一天的营业额
+    Double sumByMap(Map map);
+    //统计订单数量和已完成订单的数量
+    Integer countByMap(Map map);
 }
