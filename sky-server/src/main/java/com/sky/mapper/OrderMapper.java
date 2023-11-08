@@ -1,6 +1,7 @@
 package com.sky.mapper;
 
 import com.github.pagehelper.Page;
+import com.sky.dto.GoodsSalesDTO;
 import com.sky.dto.OrdersPageQueryDTO;
 import com.sky.entity.Orders;
 import com.sky.vo.OrderVO;
@@ -46,4 +47,7 @@ OrderVO getById(Long id);
     Double sumByMap(Map map);
     //统计订单数量和已完成订单的数量
     Integer countByMap(Map map);
+
+    //统计指定时间内菜品销量排名前10
+    List<GoodsSalesDTO> getSalesTop10(LocalDateTime begin,LocalDateTime end);
 }
